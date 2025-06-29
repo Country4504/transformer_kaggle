@@ -1,8 +1,12 @@
 import argparse
 import re
 import unicodedata
+import os
 
 import torch
+
+# Kaggle环境路径配置
+KAGGLE_BASE_PATH = '/kaggle/working/Transformer'
 
 
 def clip_gradient(optimizer, grad_clip):
@@ -24,11 +28,11 @@ def save_checkpoint(epoch, epochs_since_improvement, model, optimizer, loss, is_
              'model': model,
              'optimizer': optimizer}
 
-    filename = 'checkpoint.tar'
+    filename = os.path.join(KAGGLE_BASE_PATH, 'checkpoint.tar')
     torch.save(state, filename)
     # If this checkpoint is the best so far, store a copy so it doesn't get overwritten by a worse checkpoint
     if is_best:
-        torch.save(state, 'BEST_checkpoint.tar')
+        torch.save(state, os.path.join(KAGGLE_BASE_PATH, 'BEST_checkpoint.tar'))
 
 
 class AverageMeter(object):
@@ -134,7 +138,6 @@ def parse_args():
 
 
 def ensure_folder(folder):
-    import os
     if not os.path.isdir(folder):
         os.mkdir(folder)
 

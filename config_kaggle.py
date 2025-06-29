@@ -33,18 +33,24 @@ unk_id = 3
 num_train = 4669414
 num_valid = 3870
 
-# 数据文件路径 - 根据Kaggle数据集的实际位置调整
-# 如果数据在Kaggle的input目录中，使用以下路径：
+# 数据文件路径配置
+# 选项1: 如果数据在Kaggle的input目录中
 train_translation_en_filename = '/kaggle/input/ai-challenger-translation/train.en'
 train_translation_zh_filename = '/kaggle/input/ai-challenger-translation/train.zh'
 valid_translation_en_filename = '/kaggle/input/ai-challenger-translation/valid.en'
 valid_translation_zh_filename = '/kaggle/input/ai-challenger-translation/valid.zh'
 
-# 如果数据在working目录中，使用以下路径：
+# 选项2: 如果数据在working目录中（取消注释使用）
 # train_translation_en_filename = os.path.join(KAGGLE_BASE_PATH, 'data/ai_challenger_translation_train_20170904/translation_train_data_20170904/train.en')
 # train_translation_zh_filename = os.path.join(KAGGLE_BASE_PATH, 'data/ai_challenger_translation_train_20170904/translation_train_data_20170904/train.zh')
 # valid_translation_en_filename = os.path.join(KAGGLE_BASE_PATH, 'data/ai_challenger_translation_validation_20170912/translation_validation_20170912/valid.en')
 # valid_translation_zh_filename = os.path.join(KAGGLE_BASE_PATH, 'data/ai_challenger_translation_validation_20170912/translation_validation_20170912/valid.zh')
+
+# 选项3: 如果数据在其他位置，请修改以下路径
+# train_translation_en_filename = '/path/to/your/train.en'
+# train_translation_zh_filename = '/path/to/your/train.zh'
+# valid_translation_en_filename = '/path/to/your/valid.en'
+# valid_translation_zh_filename = '/path/to/your/valid.zh'
 
 
 def get_logger():
@@ -57,4 +63,4 @@ def get_logger():
     return logger
 
 
-logger = get_logger()
+logger = get_logger() 

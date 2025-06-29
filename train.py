@@ -1,5 +1,6 @@
 import math
 import time
+import os
 
 import numpy as np
 import torch
@@ -14,6 +15,8 @@ from transformer.optimizer import TransformerOptimizer
 from transformer.transformer import Transformer
 from utils import parse_args, save_checkpoint, AverageMeter, clip_gradient
 
+# Kaggle环境路径配置
+KAGGLE_BASE_PATH = '/kaggle/working/Transformer'
 
 # from torch import nn
 
@@ -24,7 +27,7 @@ def train_net(args):
     checkpoint = args.checkpoint
     start_epoch = 0
     best_loss = float('inf')
-    writer = SummaryWriter()
+    writer = SummaryWriter(os.path.join(KAGGLE_BASE_PATH, 'logs'))
     epochs_since_improvement = 0
 
     # Initialize / load checkpoint
