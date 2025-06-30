@@ -53,7 +53,7 @@ class AiChallenger2017Dataset(Dataset):
         src_text = sample['in']
         tgt_text = sample['out']
 
-        return np.array(src_text, dtype=np.long), np.array(tgt_text, np.long)
+        return np.array(src_text, dtype=np.int64), np.array(tgt_text, dtype=np.int64)
 
     def __len__(self):
         return len(self.samples)
