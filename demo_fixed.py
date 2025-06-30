@@ -65,7 +65,7 @@ def main():
     start = time.time()
     
     # 加载检查点
-    checkpoint = torch.load(checkpoint_file, map_location=device)
+    checkpoint = torch.load(checkpoint_file, map_location=device, weights_only=False)
     model = checkpoint['model']
     print(f'加载完成，耗时: {time.time() - start:.2f} 秒')
     

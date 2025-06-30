@@ -269,7 +269,7 @@ def train_net(args):
             torch.optim.Adam(model.parameters(), betas=(0.9, 0.98), eps=1e-09))
 
     else:
-        checkpoint = torch.load(checkpoint)
+        checkpoint = torch.load(checkpoint, map_location=device, weights_only=False)
         start_epoch = checkpoint['epoch'] + 1
         epochs_since_improvement = checkpoint['epochs_since_improvement']
         model = checkpoint['model']
