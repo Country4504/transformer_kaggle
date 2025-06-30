@@ -3,8 +3,8 @@ import os
 
 import torch
 
-# Kaggle环境路径配置
-KAGGLE_BASE_PATH = '/kaggle/working/Transformer'
+# 本地环境路径配置
+KAGGLE_BASE_PATH = '.'  # 使用当前目录
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # sets device for model and PyTorch tensors
 
@@ -33,7 +33,7 @@ unk_id = 3
 num_train = 4669414
 num_valid = 3870
 
-# 数据文件路径配置 - 使用正确的Kaggle路径
+# 数据文件路径配置 - 使用本地路径
 train_translation_en_filename = os.path.join(KAGGLE_BASE_PATH, 'data/train.en')
 train_translation_zh_filename = os.path.join(KAGGLE_BASE_PATH, 'data/train.zh')
 valid_translation_en_filename = os.path.join(KAGGLE_BASE_PATH, 'data/valid.en')
