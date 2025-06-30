@@ -39,19 +39,21 @@ def translate_sentence(sentence, model, src_char2idx, tgt_idx2char, device):
     src_length = torch.LongTensor([len(in_data)]).to(device)
     
     with torch.no_grad():
-        # 翻译
-        pred = model(src, src_length, None, teacher_forcing_ratio=0.0)
-        pred = pred.max(1)[1]
+        # 使用recognize方法进行翻译
+        nbest_hyps = model.recognize(src.squeeze(0), src_length, tgt_idx2char)
         
-        # 转换为文本
-        pred_text = []
-        for idx in pred[0]:
-            if idx.item() == eos_id:
-                break
-            if idx.item() != sos_id:
-                pred_text.append(tgt_idx2char[idx.item()])
-    
-    return ''.join(pred_text)
+        # 获取最佳翻译结果
+        if nbest_hyps and len(nbest_hyps) > 0:
+            best_hyp = nbest_hyps[0]
+            pred_text = []
+            for idx in best_hyp['yseq']:
+                if idx == eos_id:
+                    break
+                if idx != sos_id:
+                    pred_text.append(tgt_idx2char[idx])
+            return ''.join(pred_text)
+        else:
+            return "翻译失败"
 
 def main():
     # 检查检查点文件是否存在
