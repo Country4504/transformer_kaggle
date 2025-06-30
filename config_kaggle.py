@@ -36,10 +36,10 @@ num_valid = 3870
 # 数据文件路径配置
 
 #如果数据在working目录中
-train_translation_en_filename = os.path.join(KAGGLE_BASE_PATH, 'data/train.en')
-train_translation_zh_filename = os.path.join(KAGGLE_BASE_PATH, 'data/train.zh')
-valid_translation_en_filename = os.path.join(KAGGLE_BASE_PATH, 'data/valid.en')
-valid_translation_zh_filename = os.path.join(KAGGLE_BASE_PATH, 'data/valid.zh')
+train_translation_en_filename = os.path.join(KAGGLE_BASE_PATH, '/kaggle/input/aichallenger2017-translation/AIchallenger2017/ai_challenger_translation_train_20170904/translation_train_data_20170904/train.en')
+train_translation_zh_filename = os.path.join(KAGGLE_BASE_PATH, '/kaggle/input/aichallenger2017-translation/AIchallenger2017/ai_challenger_translation_train_20170904/translation_train_data_20170904/train.zh')
+valid_translation_en_filename = os.path.join(KAGGLE_BASE_PATH, '/kaggle/input/aichallenger2017-translation/AIchallenger2017/ai_challenger_translation_validation_20170912/translation_validation_20170912/valid.en-zh.en.sgm')
+valid_translation_zh_filename = os.path.join(KAGGLE_BASE_PATH, '/kaggle/input/aichallenger2017-translation/AIchallenger2017/ai_challenger_translation_validation_20170912/translation_validation_20170912/valid.en-zh.zh.sgm')
 
 # 选项3: 如果数据在其他位置，请修改以下路径
 # train_translation_en_filename = '/path/to/your/train.en'

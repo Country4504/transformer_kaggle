@@ -221,7 +221,7 @@ def main():
             self.n_layers_dec = 6
             self.tgt_emb_prj_weight_sharing = 1
             self.label_smoothing = 0.1
-            self.epochs = 5  # 先用较少的epochs测试
+            self.epochs = 20  # 先用较少的epochs测试
             self.shuffle = 1
             self.batch_size = 32  # 减小batch size以适应较小的数据集
             self.batch_frames = 0
